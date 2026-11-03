@@ -1,141 +1,350 @@
 :root{
-    -betuszin: #252525;
-    -fejlec: #cbcbcb;
-    -nav_es_footer: #CFCFCF;
-    -masodlagos_betuszin: #545454;
+    --betuszin: #252525;
+    --fejlec: #7D7D7D;
+    --nav_es_footer: #CFCFCF;
+    --masodlagos_betuszin: #545454;
+    --hatter: #E4E4E4;
+    --kartya: #F4F4F4;
+    --kep: #CFCFCF;
+    --szelesseg: 1100px;
 }
 
-@font-face{
-    font-family: 'Syne';
-    src: url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
-}
+* { box-sizing: border-box; }
 
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
 
 body,html{
-    height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
-    font-family: 'Syne',sans-serif;
-    overflow-x: hidden;
+}
+
+body{
+    font-family: 'Hanken Grotesk', sans-serif;
+    color: var(--betuszin);
+    background-color: var(--hatter);
 }
 
 #container{
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+
 header{
-    border-bottom: 1px solid black;
-    background-color:#acacac;
-}
-header > h1{
-    height: auto;
     font-size: x-large;
-    font-weight: bolder;
-    text-align: center;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    padding: 1% max(5%, calc((100% - var(--szelesseg)) / 2));
+    background-color: var(--fejlec);
+    border-bottom: 1px solid var(--betuszin);
 }
 
 nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     flex-direction: row;
-    background-color: #d1cdcd;
-    padding: 1%;
     gap: 5%;
+    padding: 1% max(5%, calc((100% - var(--szelesseg)) / 2));
+    background-color: var(--nav_es_footer);
+    border-bottom: 1px solid var(--betuszin);
+    font-size: 0.85rem;
 }
 
 nav a{
     text-decoration: none;
-    color: #252525;
+    color: var(--betuszin);
 }
 
 nav a:hover{
-    text-decoration: solid;
+    text-decoration: underline;
     font-weight: bolder;
-    text-decoration:underline;
-}
-main{
-    background-color: #f0eded;
-    height: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-.fejlec > h1{
-    font-size: 50px;
-}
-.fejlec > h3{
-    font-size: 15px;
-    font-weight: lighter;
-}
-.fejlec{
-    border-bottom: solid 1px black;
-}
-.kep > img  {
-    width: 25%;
-}
-.kep{
-    border: solid 1px black;
-    width: 25%;
-}
-.Rolam{
-    display: flex;
-    flex-direction: column;
-    gap: 10%;
-}
-.Rolam_foresz{
-    padding-top: 3%;
-    display: flex;
-    flex-direction: row;
-    gap: 5%;
-}
-#Nev{
-    width: 50px;
-    position: relative;
-    background-color: black;
-    color: white;
-    bottom: 10px;
-    left: 10px;
 }
 
-.tapasztalat{
-    display: flex;
-    flex-direction: column;
-    gap: 5%;
+main{
+    flex: 1;
+    width: 100%;
+    max-width: var(--szelesseg);
+    margin: 0 auto;
+    padding: 0 5%;
 }
-.tapasztalat_foresz{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 5%;
+
+section{
+    padding: 90px 0 40px;
 }
-.tapasztalat_ido{
+
+.section-title{
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.05;
+    margin: 0 0 14px;
+}
+
+.section-sub{
+    margin: 0;
+    padding-bottom: 14px;
+    color: var(--masodlagos_betuszin);
+    border-bottom: 1px solid var(--betuszin);
+}
+
+.sub-title{
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin: 60px 0 24px;
+}
+
+.tag{
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--betuszin);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.about{
     display: flex;
-    width: 20%;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 44px;
+    margin-top: 44px;
+    align-items: flex-start;
+}
+
+.photo{
+    flex: 0 0 250px;
+    aspect-ratio: 1;
+    background: var(--kep);
+    border: 1px solid var(--betuszin);
+    display: flex;
     align-items: flex-end;
-    padding-right: 5%;
-}   
-.tapasztalat_ido > h3{
-    border-right: solid 1px black;
-    padding-right: 5%;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.about-text h3{
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    margin: 0 0 20px;
+}
+
+.about-text p{
+    margin: 0;
+    line-height: 1.75;
+    color: var(--masodlagos_betuszin);
+}
+
+.timeline{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline li{
+    display: flex;
+    gap: 28px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.years{
+    flex: 0 0 90px;
+    text-align: right;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.entry{
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid var(--betuszin);
+}
+
+
+.entry h4{
+    margin: 0 0 4px;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.entry p{
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--masodlagos_betuszin);
+}
+
+.card{
+    background: var(--kartya);
+    border: 1px solid var(--betuszin);
+    border-radius: 8px;
+}
+
+.skills{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 44px;
+}
+
+.skill{
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-head{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.skill-head h3{
+    margin: 0;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+.icon{
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--betuszin);
+    background: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+}
+
+.skill p{
+    margin: 18px 0 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--masodlagos_betuszin);
+}
+
+.card-foot{
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid #B5B5B5;
+    font-size: 0.75rem;
+    color: var(--masodlagos_betuszin);
+}
+
+.card-foot::before{
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+    background: var(--betuszin);
+    vertical-align: middle;
+}
+
+
+.projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 44px;
+}
+
+.project{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 330px;
+}
+
+.thumb{
+    height: 150px;
+    background: var(--kep);
+    border-bottom: 1px solid var(--betuszin);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 14px;
+}
+
+.project-body{
+    flex: 1;
+}
+
+
+.contact{
+    list-style: none;
+    margin: 0;
+    padding: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact li{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.95rem;
+    color: var(--masodlagos_betuszin);
+}
+
+.contact a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact a:hover{
+    text-decoration: underline;
+}
+
+.contact strong{ 
+    color: var(--betuszin);
+}
+
+.contact svg{
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    fill: none;
+    stroke: var(--betuszin);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 footer{
-    background-color: #d1cdcd;
+    padding: 14px 5%;
     text-align: center;
-    padding: 1%;
-    font-size: small;
+    font-size: 0.75rem;
+    color: var(--masodlagos_betuszin);
+    background-color: var(--nav_es_footer);
+    border-top: 1px solid var(--betuszin);
 }
-@media only screen and (max-width: 800px) {
-    
-    nav{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 2%;
-        padding-bottom: 2%;
+
+
+@media (max-width: 900px){
+    .skills{
+        grid-template-columns: 1fr;
+    }
+    .projects{
+        grid-template-columns: 1fr;
     }
 }
